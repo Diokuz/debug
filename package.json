@@ -1,9 +1,9 @@
 {
-  "name": "debug",
+  "name": "@diokuz/debug",
   "version": "4.1.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/visionmedia/debug.git"
+    "url": "git://github.com/diokuz/debug.git"
   },
   "description": "small debugging utility",
   "keywords": [

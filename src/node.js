@@ -117,14 +117,14 @@ try {
  *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
  */
 
-exports.inspectOpts = Object.keys(process.env).filter(key => {
+exports.inspectOpts = Object.keys(process.env).filter(function(key) {
 	return /^debug_/i.test(key);
-}).reduce((obj, key) => {
+}).reduce(function(obj, key) {
 	// Camel-case
 	const prop = key
 		.substring(6)
 		.toLowerCase()
-		.replace(/_([a-z])/g, (_, k) => {
+		.replace(/_([a-z])/g, function(_, k) {
 			return k.toUpperCase();
 		});
 

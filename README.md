@@ -1,3 +1,5 @@
+> The only difference with the original package – it is ES5 (including ie11) compatible.
+
 # debug
 [![Build Status](https://travis-ci.org/visionmedia/debug.svg?branch=master)](https://travis-ci.org/visionmedia/debug)  [![Coverage Status](https://coveralls.io/repos/github/visionmedia/debug/badge.svg?branch=master)](https://coveralls.io/github/visionmedia/debug?branch=master)  [![Slack](https://visionmedia-community-slackin.now.sh/badge.svg)](https://visionmedia-community-slackin.now.sh/) [![OpenCollective](https://opencollective.com/debug/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/debug/sponsors/badge.svg)](#sponsors)
@@ -10,7 +12,7 @@ technique. Works in Node.js and web browsers.
 ## Installation
 
 ```bash
-$ npm install debug
+$ npm install @diokuz/debug
 ```
 
 ## Usage
@@ -21,18 +23,18 @@ Example [_app.js_](./examples/node/app.js):
 
 ```js
 var debug = require('debug')('http')
-  , http = require('http')
-  , name = 'My App';
+	, http = require('http')
+	, name = 'My App';
 
 // fake app
 
 debug('booting %o', name);
 
 http.createServer(function(req, res){
-  debug(req.method + ' ' + req.url);
-  res.end('hello\n');
+	debug(req.method + ' ' + req.url);
+	res.end('hello\n');
 }).listen(3000, function(){
-  debug('listening');
+	debug('listening');
 });
 
 // fake worker of some kind
@@ -44,18 +46,18 @@ Example [_worker.js_](./examples/node/worker.js):
 
 ```js
 var a = require('debug')('worker:a')
-  , b = require('debug')('worker:b');
+	, b = require('debug')('worker:b');
 
 function work() {
-  a('doing lots of uninteresting work');
-  setTimeout(work, Math.random() * 1000);
+	a('doing lots of uninteresting work');
+	setTimeout(work, Math.random() * 1000);
 }
 
 work();
 
 function workb() {
-  b('doing some work');
-  setTimeout(workb, Math.random() * 2000);
+	b('doing some work');
+	setTimeout(workb, Math.random() * 2000);
 }
 
 workb();
@@ -104,7 +106,7 @@ Then, run the program to be debugged as usual.
 
 npm script example:
 ```js
-  "windowsDebug": "@powershell -Command $env:DEBUG='*';node app.js",
+	"windowsDebug": "@powershell -Command $env:DEBUG='*';node app.js",
 ```
 
 ## Namespace Colors
@@ -202,7 +204,7 @@ For example, if you wanted to add support for rendering a Buffer as hex with
 ```js
 const createDebug = require('debug')
 createDebug.formatters.h = (v) => {
-  return v.toString('hex')
+	return v.toString('hex')
 }
 
 // …elsewhere
@@ -233,18 +235,18 @@ a = debug('worker:a');
 b = debug('worker:b');
 
 setInterval(function(){
-  a('doing some work');
+	a('doing some work');
 }, 1000);
 
 setInterval(function(){
-  b('doing some work');
+	b('doing some work');
 }, 1200);
 ```
 
 
 ## Output streams
 
-  By default `debug` will log to stderr, however this can be configured per-namespace by overriding the `log` method:
+	By default `debug` will log to stderr, however this can be configured per-namespace by overriding the `log` method:
 
 Example [_stdout.js_](./examples/node/stdout.js):
 
@@ -309,7 +311,7 @@ print :
 Usage :  
 `enable(namespaces)`  
 `namespaces` can include modes separated by a colon and wildcards.
-   
+	 
 Note that calling `enable()` completely overrides previously set DEBUG variable : 
 
 ```
@@ -344,7 +346,7 @@ enabled by checking the `enabled` property:
 const debug = require('debug')('http');
 
 if (debug.enabled) {
-  // do stuff...
+	// do stuff...
 }
 ```
 
